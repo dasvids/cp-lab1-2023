@@ -5,9 +5,15 @@ import {Cache} from "../src/cache";
 // }); что то что хочется стереть 
 
 describe('Cache', () => {
+
+    let cache; 
+    beforeEach(() => {
+        cache = new Cache();
+    }); // more smart way i think so
+    
     // крч он жалуется на русский, так что резко english language 
     it('Should store and retrieve values with default access count', () => { 
-        const cache = new Cache(); //creating
+        //const cache = new Cache(); //creating
         cache.set('key1', 'value1'); // setting key and value (imagine)
         cache.set('key2', 'value2'); // imagine one more time 
         expect(cache.get('key1')).toBe('value1'); // all logically
@@ -15,7 +21,7 @@ describe('Cache', () => {
     });
 
     it('Should store and retrieve values with specified access count', () => { 
-        const cache = new Cache();
+        //const cache = new Cache();
         cache.set('key1', 'value1', 2); // im tired writting comments, anyway here with +- english knowledge all understandable
         expect(cache.get('key1')).toBe('value1');
         expect(cache.get('key1')).toBe('value1');
@@ -23,19 +29,19 @@ describe('Cache', () => {
     });
 
     it('Should return null for no exist keys', () => {
-        const cache = new Cache();
+        //const cache = new Cache();
         expect(cache.get('nonExistentKey')).toBe(null);
     });
 
     it('Should return null when access count is lesser or equal zero', () => {
-        const cache = new Cache();
+        //const cache = new Cache();
         cache.set('key1', 'value1', 1); 
         expect(cache.get('key1')).toBe('value1');
         expect(cache.get('key1')).toBe(null); 
     });
 
     it('should give statistics for cache', () => {
-        const cache = new Cache();
+        //const cache = new Cache();
         cache.set('key1', 'value1', 3);
         cache.set('key2', 'value2', 1);
         cache.get('key1');
