@@ -41,7 +41,7 @@ describe('Cache', () => {
         cache.get('key1');
         cache.get('key2');
         cache.get('key1');
-        const stats = cache.getStatistics();
+        const stats = cache.stats();
         expect(stats).toEqual([
           { key: 'key1', value: 'value1', remainAccesses: 1 },
           { key: 'key2', value: 'value2', remainAccesses: 0 },
